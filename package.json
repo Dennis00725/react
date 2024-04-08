@@ -1,0 +1,29 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "react journey",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dennis00725/react.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Dennis Daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dennis00725/react/issues"
+  },
+  "homepage": "https://github.com/Dennis00725/react#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
