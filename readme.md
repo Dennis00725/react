@@ -1,6 +1,6 @@
 # ReactJourney
 
-# parcer
+# parcel
 
 -Dev build
 -local server
@@ -11,3 +11,10 @@
 -bundling
 -compress
 -consistent Hashing
+-code splitting
+-differential bundling - supports older browsers
+-diagnostic
+-error handling
+-HTPPs
+-Tree shaking - removes unused codes
+-different dev and production bundle
