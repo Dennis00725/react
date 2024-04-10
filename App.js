@@ -41,6 +41,14 @@ const Header = () => {
 };
 
 const RestaurantCard = ({ resData }) => {
+  const {
+    name,
+    cuisines,
+    avgRatingString,
+    costForTwo,
+    deliveryTime,
+    cloudinaryImageId,
+  } = resData ?? {};
   return (
     <div className="res-cards" style={{ backgroundColor: "#f0f0f0" }}>
       <img
@@ -48,14 +56,14 @@ const RestaurantCard = ({ resData }) => {
         alt="res-logo"
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resData.cloudinaryImageId
+          cloudinaryImageId
         }
       />
-      <h3>{resData.name}</h3>
-      <h4>{resData.cuisines.join(", ")}</h4>
-      <h4>{resData.avgRatingString}</h4>
-      <h4>{resData.costForTwo}</h4>
-      <h4>{resData.deliveryTime} minutes</h4>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRatingString}</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{deliveryTime} minutes</h4>
     </div>
   );
 };
