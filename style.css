@@ -21,7 +21,6 @@
 .res-cards {
   padding: 5px;
   width: 200px;
-  height: 300px;
   margin: 10px;
 }
 .res-cards:hover {
@@ -30,8 +29,8 @@
 }
 
 .res-logo {
-  width: 100%;
-  height: 50%;
+  width: 200px;
+  height: 200px;
 }
 .res-container {
   display: flex;
