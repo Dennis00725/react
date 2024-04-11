@@ -36,3 +36,6 @@
   display: flex;
   flex-wrap: wrap;
 }
+.fltr-btn {
+  margin: 10px;
+}

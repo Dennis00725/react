@@ -38,3 +38,13 @@
 - - -addresses
 - - -contact
     \*\*/
+
+Two types of EXPORT / IMPORT
+
+- Default EXPORT/IMPORT
+  export default component;
+  import component from "path";
+
+- Named EXPORT / IMPORT
+  export const component;
+  import {component} from "path";
