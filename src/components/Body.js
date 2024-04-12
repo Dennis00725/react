@@ -1,33 +1,44 @@
-import resList from "./utils/mockData";
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import resList from "./utils/mockData";
 
 const Body = () => {
-  const [listOfRestaurant, setListOfRestaurant] = useState(resList);
+  // Local State Variable - Super powerful variable
+  const [listOfRestaurants, setListOfRestaurant] = useState(resList);
 
-  const filterTopRatedRestaurants = () => {
-    const filteredList = listOfRestaurant.map((listItem) => ({
-      ...listItem,
-      restaurants: listItem.restaurants.filter(
-        (restaurant) => parseFloat(restaurant.avgRatingString) > 4
-      ),
-    }));
-    setListOfRestaurant(filteredList);
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=9.9312328&lng=76.26730409999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    setListOfRestaurant(json?.data?.cards[4]);
   };
 
   return (
     <div className="body">
       <div className="filter">
-        <button className="fltr-btn" onClick={filterTopRatedRestaurants}>
-          Top-Rated Restaurants
+        <button
+          className="filter-btn"
+          onClick={() => {
+            // let listOfRestaurants = ["a", "b", "c"];
+            const filteredList = listOfRestaurants.filter(
+              (res) => res.data.avgRating > 4
+            );
+            console.log(filteredList);
+            setOfRestaurant(filteredList);
+          }}
+        >
+          Top Rated Restaurants
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurant.map((listItem) =>
-          listItem.restaurants.map((restaurant) => (
-            <RestaurantCard key={restaurant.id} resData={restaurant} />
-          ))
-        )}
+        {listOfRestaurants.map((restaurant) => (
+          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+        ))}
       </div>
     </div>
   );
