@@ -4,4 +4,5 @@ export const CDN_URL =
 export const LOGO_URL =
   "https://r2.erweima.ai/ideogram/kkPw7ZAcSf-OCJqNcT6Hww.jpg";
 
-export const MENU_API = "https://www.swiggy.com/restaurants/";
+export const MENU_API =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=9.9312328&lng=76.26730409999999&restaurantId=";
