@@ -14,10 +14,24 @@ class About extends Component {
     return (
       <div>
         <h1>About</h1>
-        <UserClass />
+        <UserClass name={"fist"} location={"India"} />
+        <UserClass name={"second"} location={"US"} />
       </div>
     );
   }
 }
 
 export default About;
+
+/*
+*Mounting*
+Parent Constructor
+Parent Render
+fistChild Constructor
+fistChild Render
+secondChild Constructor
+secondChild Render
+fistChild componentDidMount
+secondChild componentDidMount
+Parent componentDidMount
+ */
