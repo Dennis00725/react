@@ -1,36 +1,75 @@
-import { Component } from "react";
-import UserContext from "./utils/UserContext";
+import React from "react";
 
-class About extends Component {
+class UserClass extends React.Component {
   constructor(props) {
     super(props);
 
-    //console.log("Parent Constructor");
+    this.state = {
+      userInfo: {
+        name: "Dummy",
+        location: "Default",
+      },
+    };
+    //console.log(this.props.name + "Child Constructor");
   }
 
-  componentDidMount() {
-    //console.log("Parent Component Did Mount");
+  async componentDidMount() {
+    //console.log(this.props.name + "Child Component Did Mount");
+    // Api call
+
+    const data = await fetch("https://api.github.com/users/dennis00725");
+    const json = await data.json();
+
+    this.setState({
+      userInfo: json,
+    });
+
+    //console.log(json);
+  }
+
+  componentDidUpdate() {
+    //console.log("Component Did Update");
+  }
+
+  componentWillUnmount() {
+    //console.log("Component Will Unmount");
   }
 
   render() {
-    //console.log("Parent Render");
+    console.log(this.props.name + "Child Render");
 
+    const { name, location, avatar_url } = this.state.userInfo;
     return (
-      <div>
-        <h1>About Class Component</h1>
-        <div>
-          LoggedIn User
-          <UserContext.Consumer>
-            {({ loggedInUser }) => (
-              <h1 className="text-xl font-bold">{loggedInUser}</h1>
-            )}
-          </UserContext.Consumer>
-        </div>
-        <h2>hello</h2>
-        <UserClass name={"Dennis"} location={"Kerala"} />
+      <div className="user-card">
+        <img className="w-52 rounded-lg" src={avatar_url} />
+        <h2>Name: {name}</h2>
+        <h3>Location: {location}</h3>
+        <h4>Contact: @dennis00725</h4>
       </div>
     );
   }
 }
 
-export default About;
+export default UserClass;
+
+/****
+ *
+ * --- MOUNTING ----
+ *
+ * Constructor (dummy)
+ * Render (dummy)
+ *      <HTML Dummy >
+ * Component Did MOunt
+ *      <API Call>
+ *      <this.setState> -> State variable is updated
+ *
+ * ---- UPDATE
+ *
+ *      render(APi data)
+ *      <HTML (new API data>)
+ *      ccomponentDid Update
+ *
+ *
+ *
+ *
+ */
