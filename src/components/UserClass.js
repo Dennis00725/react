@@ -1,36 +1,36 @@
-import React from "react";
-class UserClass extends React.Component {
+import { Component } from "react";
+import UserContext from "./utils/UserContext";
+
+class About extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      count: 0,
-    };
-    console.log(this.props.name + "Child Constructor");
+
+    //console.log("Parent Constructor");
   }
+
   componentDidMount() {
-    console.log(this.props.name + "Child componentDidMount");
+    //console.log("Parent Component Did Mount");
   }
 
   render() {
-    console.log(this.props.name + "Child Render");
+    //console.log("Parent Render");
 
-    const { count } = this.state;
     return (
-      <div className="user-card">
-        <h1>count:{count}</h1>
-        <button
-          onClick={() => {
-            this.setState({ count: this.state.count + 1 });
-          }}
-        >
-          Count Increase
-        </button>
-        <h2>Name: Dennis</h2>
-        <h3></h3>
-        <h3>Contact : @dennis00725</h3>
+      <div>
+        <h1>About Class Component</h1>
+        <div>
+          LoggedIn User
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="text-xl font-bold">{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+        </div>
+        <h2>hello</h2>
+        <UserClass name={"Dennis"} location={"Kerala"} />
       </div>
     );
   }
 }
 
-export default UserClass;
+export default About;
