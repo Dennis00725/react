@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "./utils/useOnlineStatus";
-import { LOGO_URL } from "./utils/constants";
-import UserContext from "./utils/UserContext";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import { LOGO_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
