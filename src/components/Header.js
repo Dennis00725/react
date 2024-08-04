@@ -13,7 +13,7 @@ const Header = () => {
 
   // Subscribing to the store using Selector
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  //console.log(cartItems);
 
   return (
     <div className="flex justify-between bg-blue-200 shadow-lg">
@@ -21,9 +21,9 @@ const Header = () => {
         <img className="w-40" src={LOGO_URL} />
       </div>
 
-      <div className="flex items-center px-4">
-        <ul className="flex ">
-          <li className="px-4">Online Status : {onlineStatus ? "🟢" : "🔴"}</li>
+      <div className="flex items-center">
+        <ul className="flex p-4 m-4">
+          <li className="px-4">Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
           <li className="px-4">
             <Link to="/">Home</Link>
           </li>
@@ -36,7 +36,9 @@ const Header = () => {
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4">Cart-({cartItems.length} items)</li>
+          <li className="px-4 font-bold text-xl">
+            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
+          </li>
           <button
             className="login"
             onClick={() => {
